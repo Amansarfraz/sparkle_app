@@ -53,8 +53,8 @@ class GetStartedScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 45,
-                    vertical: 15,
+                    horizontal: 100,
+                    vertical: 20,
                   ),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
@@ -74,7 +74,7 @@ class GetStartedScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 15),
                     Text(
                       ">",
                       style: TextStyle(
