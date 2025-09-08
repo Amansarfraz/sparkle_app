@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const SplashScreenApp());
+  runApp(const SplashApp());
 }
 
-class SplashScreenApp extends StatelessWidget {
-  const SplashScreenApp({super.key});
+class SplashApp extends StatelessWidget {
+  const SplashApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,13 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFFE0F2F7), // Light blue
-              Color(0xFFFFE0B2), // Light peach
+              Color(0xFFE0F2F7), // light blue top
+              Color(0xFFFFE0B2), // peach bottom
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -36,32 +38,32 @@ class SplashScreen extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Center box with S image and star
+            // Center peach box with S and star
             Container(
-              width: 120,
-              height: 120,
+              width: 130,
+              height: 130,
               decoration: BoxDecoration(
-                color: const Color(0xFFFFCC99), // peach color
-                borderRadius: BorderRadius.circular(30),
+                color: const Color(0xFFFFCC99), // peach box
+                borderRadius: BorderRadius.circular(35),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // "S" image
+                  // S image
                   Image.asset(
-                    "assets/images/Vector (1).png", // <-- apna path daalna
-                    width: 60,
-                    height: 60,
+                    "assets/images/Vector (1).png", // apna path daalna
+                    width: 70,
+                    height: 70,
                   ),
 
-                  // Star image (top-right)
+                  // Star image (top right)
                   Positioned(
-                    top: 28,
-                    right: 28,
+                    top: 25,
+                    right: 25,
                     child: Image.asset(
-                      "assets/images/star.png", // <-- apna path daalna
-                      width: 24,
-                      height: 24,
+                      "assets/images/star.png", // apna path daalna
+                      width: 26,
+                      height: 26,
                     ),
                   ),
                 ],
@@ -70,11 +72,11 @@ class SplashScreen extends StatelessWidget {
 
             // Bottom line image
             Positioned(
-              bottom: 20,
+              bottom: 30,
               child: Image.asset(
-                "assets/images/line 1.png", // <-- apna path daalna
-                width: 120,
-                height: 8,
+                "assets/images/line 1.png", // apna path daalna
+                width: 140,
+                height: 10,
               ),
             ),
           ],
