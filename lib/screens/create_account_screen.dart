@@ -21,20 +21,25 @@ class CreateAccountScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Column(
+        child: Stack(
           children: [
-            // Cell wali image upar se full width
-            Image.asset(
-              "assets/images/cell.png", // apna path daalna
-              width: screenWidth,
-              height: 484,
-              fit: BoxFit.cover,
+            // Cell wali image (bari height + background k sath blend)
+            Positioned(
+              top: 0,
+              child: Image.asset(
+                "assets/images/cell.png", // apna path daalna
+                width: screenWidth,
+                height: 520, // height barha di
+                fit: BoxFit.cover,
+              ),
             ),
 
-            // White box neeche joint
-            Expanded(
+            // White box neeche fixed height
+            Positioned(
+              bottom: 0,
               child: Container(
                 width: screenWidth,
+                height: 221, // fixed height wapas
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -53,7 +58,7 @@ class CreateAccountScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // Sign in button (fixed 292x70)
+                    // Sign in button (292x70 + aur round)
                     SizedBox(
                       width: 292,
                       height: 70,
@@ -65,7 +70,9 @@ class CreateAccountScreen extends StatelessWidget {
                           ),
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(
+                              40,
+                            ), // aur round
                           ),
                         ),
                         onPressed: () {
