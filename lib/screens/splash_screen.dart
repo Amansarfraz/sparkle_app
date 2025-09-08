@@ -1,20 +1,6 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const SplashApp());
-}
-
-class SplashApp extends StatelessWidget {
-  const SplashApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
-  }
-}
+import 'dart:async';
+import 'get_started_screen.dart'; // import get started screen
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -27,12 +13,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    // 3 second delay ke baad next screen par chale jao
-    Future.delayed(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const NextScreen()),
+        MaterialPageRoute(builder: (context) => const GetStartedScreen()),
       );
     });
   }
@@ -61,25 +45,22 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 130,
               height: 130,
               decoration: BoxDecoration(
-                color: const Color(0xFFFFCC99), // peach box
+                color: const Color(0xFFFFCC99),
                 borderRadius: BorderRadius.circular(35),
               ),
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // S image
                   Image.asset(
-                    "assets/images/Vector (1).png", // apna path daalna
+                    "assets/images/Vector (1).png",
                     width: 70,
                     height: 70,
                   ),
-
-                  // Star image (top right)
                   Positioned(
-                    top: 15, // halka sa upar
+                    top: 15,
                     right: 25,
                     child: Image.asset(
-                      "assets/images/star.png", // apna path daalna
+                      "assets/images/star.png",
                       width: 26,
                       height: 26,
                     ),
@@ -87,35 +68,15 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
             ),
-
-            // Bottom line image
             Positioned(
               bottom: 30,
               child: Image.asset(
-                "assets/images/line 1.png", // apna path daalna
+                "assets/images/line 1.png",
                 width: 140,
                 height: 10,
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-// Next screen (example)
-class NextScreen extends StatelessWidget {
-  const NextScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Text(
-          "Welcome to Next Screen 🎉",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
     );
