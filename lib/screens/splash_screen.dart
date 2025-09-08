@@ -58,7 +58,7 @@ class SplashScreen extends StatelessWidget {
 
                   // Star image (top right)
                   Positioned(
-                    top: 25,
+                    top: 15, // ⬅️ halka sa upar kar diya
                     right: 25,
                     child: Image.asset(
                       "assets/images/star.png", // apna path daalna
