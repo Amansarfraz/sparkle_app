@@ -16,8 +16,26 @@ class SplashApp extends StatelessWidget {
   }
 }
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    // 3 second delay ke baad next screen par chale jao
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const NextScreen()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +76,7 @@ class SplashScreen extends StatelessWidget {
 
                   // Star image (top right)
                   Positioned(
-                    top: 15, // ⬅️ halka sa upar kar diya
+                    top: 15, // halka sa upar
                     right: 25,
                     child: Image.asset(
                       "assets/images/star.png", // apna path daalna
@@ -80,6 +98,24 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+// Next screen (example)
+class NextScreen extends StatelessWidget {
+  const NextScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Text(
+          "Welcome to Next Screen 🎉",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
     );
