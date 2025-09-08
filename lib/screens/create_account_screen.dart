@@ -5,6 +5,8 @@ class CreateAccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -22,13 +24,14 @@ class CreateAccountScreen extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Image in center (apna path daalna)
+            // Big cell image (full width according to UI)
             Positioned(
-              top: 150,
+              top: 100,
               child: Image.asset(
-                "assets/images/cell.png", // yahan apna path daalna
-                width: 120,
-                height: 120,
+                "assets/images/cell.png", // apna path daalna
+                width: screenWidth, // full width
+                height: 484,
+                fit: BoxFit.contain,
               ),
             ),
 
@@ -36,7 +39,7 @@ class CreateAccountScreen extends StatelessWidget {
             Positioned(
               bottom: 0,
               child: Container(
-                width: 393,
+                width: screenWidth, // full width
                 height: 221,
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -56,7 +59,7 @@ class CreateAccountScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
 
-                    // Second button (outlined Sky Blue, white background)
+                    // Second button (match size & shape of above image button)
                     SizedBox(
                       width: 250,
                       height: 50,
