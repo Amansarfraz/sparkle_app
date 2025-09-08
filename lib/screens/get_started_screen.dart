@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'create_account_screen.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -61,6 +62,12 @@ class GetStartedScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CreateAccountScreen(),
+                    ),
+                  );
                   // Yahan aap apni HomeScreen ya next page ka navigation likh sakte ho
                 },
                 child: Row(
