@@ -21,26 +21,20 @@ class CreateAccountScreen extends StatelessWidget {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Stack(
-          alignment: Alignment.center,
+        child: Column(
           children: [
-            // Big cell image (full width according to UI)
-            Positioned(
-              top: 100,
-              child: Image.asset(
-                "assets/images/cell.png", // apna path daalna
-                width: screenWidth, // full width
-                height: 484,
-                fit: BoxFit.contain,
-              ),
+            // Cell wali image upar se full width
+            Image.asset(
+              "assets/images/cell.png", // apna path daalna
+              width: screenWidth,
+              height: 484,
+              fit: BoxFit.cover,
             ),
 
-            // White box at bottom
-            Positioned(
-              bottom: 0,
+            // White box neeche joint
+            Expanded(
               child: Container(
-                width: screenWidth, // full width
-                height: 221,
+                width: screenWidth,
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -54,15 +48,15 @@ class CreateAccountScreen extends StatelessWidget {
                     // Button 1 image (apna path daalna)
                     Image.asset(
                       "assets/images/button 1.png", // apna path daalna
-                      width: 250,
-                      height: 50,
+                      width: 292,
+                      height: 70,
                     ),
                     const SizedBox(height: 20),
 
-                    // Second button (match size & shape of above image button)
+                    // Sign in button (fixed 292x70)
                     SizedBox(
-                      width: 250,
-                      height: 50,
+                      width: 292,
+                      height: 70,
                       child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
                           side: const BorderSide(
@@ -81,7 +75,7 @@ class CreateAccountScreen extends StatelessWidget {
                           "Sign in",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
