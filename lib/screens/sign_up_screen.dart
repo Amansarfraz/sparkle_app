@@ -28,12 +28,16 @@ class SignUpScreen extends StatelessWidget {
               Stack(
                 alignment: Alignment.topRight,
                 children: [
-                  Image.asset("assets/images/star.png", height: 80, width: 80),
+                  Image.asset(
+                    "assets/images/Vector (1).png",
+                    height: 80,
+                    width: 80,
+                  ),
                   Positioned(
                     top: 0,
                     right: 0,
                     child: Image.asset(
-                      "assets/images/Vector (1).png",
+                      "assets/images/star.png",
                       height: 20,
                       width: 20,
                     ),
@@ -154,11 +158,7 @@ class SignUpScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    "assets/images/google.png",
-                    height: 40,
-                    width: 40,
-                  ),
+                  Image.asset("assets/images/Group.png", height: 40, width: 40),
                   const SizedBox(width: 20),
                   Image.asset("assets/images/apple.png", height: 40, width: 40),
                 ],
