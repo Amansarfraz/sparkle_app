@@ -64,6 +64,8 @@ flutter:
     - assets/images/line 1.png
     - assets/images/cell.png
     - assets/images/button 1.png
+    - assets/images/google.png 
+    - assets/images/apple.png
 
 
   #   - images/a_dot_burr.jpeg

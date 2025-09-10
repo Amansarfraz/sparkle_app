@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sign_up_screen.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({super.key});
@@ -76,7 +77,12 @@ class CreateAccountScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          // Sign in action
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignUpScreen(),
+                            ),
+                          ); // Sign in action
                         },
                         child: const Text(
                           "Sign in",
