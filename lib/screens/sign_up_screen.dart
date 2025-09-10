@@ -13,7 +13,7 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Back Button + Logo
+              // Back Button
               Row(
                 children: [
                   IconButton(
@@ -24,15 +24,30 @@ class SignUpScreen extends StatelessWidget {
                 ],
               ),
 
-              // Logo with star overlay
+              // Logo with star overlay inside rounded box
               Stack(
-                alignment: Alignment.topRight,
+                alignment: Alignment.center,
                 children: [
+                  // Rounded box (background)
+                  Container(
+                    height: 92.72,
+                    width: 92.72,
+                    decoration: BoxDecoration(
+                      color: Colors.orange[100], // change as per your design
+                      borderRadius: BorderRadius.circular(
+                        20,
+                      ), // rounded corners
+                    ),
+                  ),
+
+                  // S logo
                   Image.asset(
                     "assets/images/Vector (1).png",
                     height: 80,
                     width: 80,
                   ),
+
+                  // Star (top-right)
                   Positioned(
                     top: 0,
                     right: 0,
