@@ -57,8 +57,8 @@ class SignUpScreen extends StatelessWidget {
 
                   // Star (top-right)
                   Positioned(
-                    top: 15,
-                    right: 25,
+                    top: 0,
+                    right: 0,
                     child: Image.asset(
                       "assets/images/star.png",
                       height: 20,
