@@ -44,8 +44,8 @@ class SignUpScreen2 extends StatelessWidget {
                     ),
                     // Star at top-left
                     Positioned(
-                      top: 6,
-                      right: 6,
+                      top: 5,
+                      right: 5,
                       child: Image.asset(
                         "assets/images/star.png", // <-- Path for "Star"
                         width: 16,
