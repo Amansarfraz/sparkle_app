@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'sign_up_screen2.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -18,7 +19,14 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpScreen2(),
+                        ),
+                      );
+                    },
                   ),
                   const Spacer(),
                 ],
@@ -85,7 +93,14 @@ class SignUpScreen extends StatelessWidget {
 
               // Phone Button
               ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpScreen2(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.phone, color: Colors.black54),
                 label: const Text(
                   "Phone Number",
@@ -104,7 +119,14 @@ class SignUpScreen extends StatelessWidget {
 
               // Email Button
               ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpScreen2(),
+                    ),
+                  );
+                },
                 icon: const Icon(Icons.email_outlined, color: Colors.black54),
                 label: const Text(
                   "Email",
