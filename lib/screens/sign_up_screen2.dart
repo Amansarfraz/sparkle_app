@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'verify_number_screen.dart';
 
 class SignUpScreen2 extends StatelessWidget {
   const SignUpScreen2({super.key});
@@ -18,7 +19,14 @@ class SignUpScreen2 extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: IconButton(
                   icon: const Icon(Icons.arrow_back, color: Colors.black),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const VerifyNumberScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
 
@@ -29,7 +37,7 @@ class SignUpScreen2 extends StatelessWidget {
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFD58A), // mustard color
+                  color: Colors.orange[100], // mustard color
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Stack(
@@ -186,7 +194,14 @@ class SignUpScreen2 extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const VerifyNumberScreen(),
+                      ),
+                    );
+                  },
                   child: const Text(
                     "Create an Account",
                     style: TextStyle(

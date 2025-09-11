@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sparkle_app/screens/verify_number_screen.dart';
 import 'screens/splash_screen.dart';
 import 'screens/get_started_screen.dart';
 import 'screens/sign_up_screen.dart';
@@ -23,6 +24,7 @@ class SparkleApp extends StatelessWidget {
         '/get_started_screen': (context) => const GetStartedScreen(),
         '/sign_up_screen': (context) => const SignUpScreen(),
         '/sign_up_screen2': (context) => const SignUpScreen2(),
+        '/verify_number_screen': (context) => const VerifyNumberScreen(),
       },
     );
   }
