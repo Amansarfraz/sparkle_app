@@ -37,7 +37,7 @@ class SignUpScreen2 extends StatelessWidget {
                     // S in the center
                     Center(
                       child: Image.asset(
-                        "assets/icons/Vector (1).png", // <-- Path for "S"
+                        "assets/images/Vector (1).png", // <-- Path for "S"
                         width: 36,
                         height: 36,
                       ),
@@ -47,7 +47,7 @@ class SignUpScreen2 extends StatelessWidget {
                       top: 6,
                       left: 6,
                       child: Image.asset(
-                        "assets/icons/star.png", // <-- Path for "Star"
+                        "assets/images/star.png", // <-- Path for "Star"
                         width: 16,
                         height: 16,
                       ),
@@ -238,13 +238,13 @@ class SignUpScreen2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/icons/google.png", // <-- Google icon path
+                    "assets/images/google.png", // <-- Google icon path
                     width: 40,
                     height: 40,
                   ),
                   const SizedBox(width: 24),
                   Image.asset(
-                    "assets/icons/apple.png", // <-- Apple icon path
+                    "assets/images/apple.png", // <-- Apple icon path
                     width: 40,
                     height: 40,
                   ),
