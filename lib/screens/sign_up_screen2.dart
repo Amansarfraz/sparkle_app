@@ -45,7 +45,7 @@ class SignUpScreen2 extends StatelessWidget {
                     // Star at top-left
                     Positioned(
                       top: 6,
-                      left: 6,
+                      right: 6,
                       child: Image.asset(
                         "assets/images/star.png", // <-- Path for "Star"
                         width: 16,
@@ -238,7 +238,7 @@ class SignUpScreen2 extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/images/google.png", // <-- Google icon path
+                    "assets/images/Group.png", // <-- Google icon path
                     width: 40,
                     height: 40,
                   ),
