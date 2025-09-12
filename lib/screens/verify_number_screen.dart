@@ -158,8 +158,8 @@ class VerifyNumberScreen extends StatelessWidget {
               // 👇 Image updated with width fit
               Image.asset(
                 "assets/images/number.png",
-                height: 120,
-                width: double.infinity,
+                height: 336,
+                width: 393,
                 fit: BoxFit.contain,
               ),
             ],
