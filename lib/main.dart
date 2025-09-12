@@ -4,6 +4,7 @@ import 'screens/splash_screen.dart';
 import 'screens/get_started_screen.dart';
 import 'screens/sign_up_screen.dart';
 import 'screens/sign_up_screen2.dart';
+import 'screens/verify_code_screen.dart';
 
 void main() {
   runApp(const SparkleApp());
@@ -25,6 +26,7 @@ class SparkleApp extends StatelessWidget {
         '/sign_up_screen': (context) => const SignUpScreen(),
         '/sign_up_screen2': (context) => const SignUpScreen2(),
         '/verify_number_screen': (context) => const VerifyNumberScreen(),
+        '/verify_code_screen': (context) => const VerifyCodeScreen(),
       },
     );
   }

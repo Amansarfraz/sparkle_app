@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'verify_code_screen.dart';
 
 class VerifyNumberScreen extends StatelessWidget {
   const VerifyNumberScreen({super.key});
@@ -138,7 +139,14 @@ class VerifyNumberScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const VerifyCodeScreen(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFFE0F2F7),
                     shape: RoundedRectangleBorder(
