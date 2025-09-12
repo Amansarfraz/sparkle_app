@@ -155,8 +155,13 @@ class VerifyNumberScreen extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // 👇 Image path (aap yahan apna asset path laga lena)
-              Image.asset("assets/images/number.png", height: 120),
+              // 👇 Image updated with width fit
+              Image.asset(
+                "assets/images/number.png",
+                height: 120,
+                width: double.infinity,
+                fit: BoxFit.contain,
+              ),
             ],
           ),
         ),
