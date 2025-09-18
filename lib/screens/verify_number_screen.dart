@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'verify_code_screen.dart';
 
 class VerifyNumberScreen extends StatefulWidget {
   const VerifyNumberScreen({super.key});
@@ -33,14 +32,12 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              // Back Arrow + Title + Star
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Column(
+          children: [
+            // Top Bar
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
                 children: [
                   const Icon(Icons.arrow_back, color: Colors.black),
                   const Spacer(),
@@ -48,15 +45,8 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                     decoration: const BoxDecoration(
                       color: Colors.amber,
                       shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 4,
-                          offset: Offset(2, 2),
-                        ),
-                      ],
                     ),
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(10),
                     child: const Text(
                       "S",
                       style: TextStyle(
@@ -67,35 +57,36 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 32),
+            ),
 
-              // Title
-              const Text(
-                "Let's Get Started",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(height: 32),
+            const SizedBox(height: 12),
 
-              // Enter Your Number Label
-              const Align(
-                alignment: Alignment.centerLeft,
+            // Title
+            const Text(
+              "Let's Get Started",
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Enter Number Label
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
                   "Enter Your Number",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ),
-              const SizedBox(height: 12),
+            ),
 
-              // Phone Field
-              Container(
+            const SizedBox(height: 8),
+
+            // Input Field
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black26),
@@ -122,7 +113,7 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                     Expanded(
                       child: TextField(
                         controller: _phoneController,
-                        readOnly: true, // sirf custom keypad se input
+                        readOnly: true,
                         keyboardType: TextInputType.none,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -133,20 +124,28 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 12),
+            ),
 
-              // Description
-              const Align(
-                alignment: Alignment.centerLeft,
+            const SizedBox(height: 8),
+
+            // Description
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
                 child: Text(
                   "We’ll text you a verification code",
-                  style: TextStyle(color: Colors.black54, fontSize: 14),
+                  style: TextStyle(fontSize: 14, color: Colors.black54),
                 ),
               ),
-              const SizedBox(height: 12),
+            ),
 
-              // Checkbox + Terms
-              Row(
+            const SizedBox(height: 12),
+
+            // Terms & Checkbox
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Icon(Icons.circle_outlined, size: 18, color: Colors.black45),
@@ -159,22 +158,19 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+            ),
 
-              // Verify Button
-              SizedBox(
+            const SizedBox(height: 16),
+
+            // Verify Button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const VerifyCodeScreen(),
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFE0F2F7),
+                    backgroundColor: Colors.lightBlue[100],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -186,74 +182,80 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                   ),
                 ),
               ),
+            ),
 
-              const Spacer(),
+            const Spacer(),
 
-              // Number Pad Box
-              Container(
-                width: 396,
-                height: 336,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFD1D3D9), // background color
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: const EdgeInsets.all(12),
-                child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 12, // 0-9 + backspace + empty
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8,
-                    childAspectRatio: 2,
+            // Custom Keypad
+            Container(
+              height: 260,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: Color(0xFFD1D3D9),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+              ),
+              child: Column(
+                children: [
+                  // Suggestion Row
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 6,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          "From Messages  123 456",
+                          style: TextStyle(fontSize: 14, color: Colors.black54),
+                        ),
+                      ],
+                    ),
                   ),
-                  itemBuilder: (context, index) {
-                    if (index == 9) {
-                      return const SizedBox(); // empty space
-                    } else if (index == 11) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: IconButton(
-                          onPressed: _deleteNumber,
-                          icon: const Icon(
-                            Icons.backspace,
-                            color: Colors.black,
+                  Expanded(
+                    child: GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 12,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            childAspectRatio: 1.8,
                           ),
-                        ),
-                      );
-                    } else {
-                      String number = (index == 10)
-                          ? "0"
-                          : (index + 1).toString();
-                      return InkWell(
-                        onTap: () => _addNumber(number),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white, // button color
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Center(
-                            child: Text(
-                              number,
-                              style: const TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                      itemBuilder: (context, index) {
+                        if (index == 9) {
+                          return const SizedBox();
+                        } else if (index == 11) {
+                          return IconButton(
+                            onPressed: _deleteNumber,
+                            icon: const Icon(
+                              Icons.backspace,
+                              color: Colors.black,
+                            ),
+                          );
+                        } else {
+                          String number = (index == 10)
+                              ? "0"
+                              : (index + 1).toString();
+                          return InkWell(
+                            onTap: () => _addNumber(number),
+                            child: Center(
+                              child: Text(
+                                number,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      );
-                    }
-                  },
-                ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
