@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
 import 'verify_code_screen.dart';
 
-class VerifyNumberScreen extends StatelessWidget {
+class VerifyNumberScreen extends StatefulWidget {
   const VerifyNumberScreen({super.key});
+
+  @override
+  State<VerifyNumberScreen> createState() => _VerifyNumberScreenState();
+}
+
+class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
+  final TextEditingController _phoneController = TextEditingController();
+
+  void _addNumber(String number) {
+    setState(() {
+      _phoneController.text += number;
+    });
+  }
+
+  void _deleteNumber() {
+    setState(() {
+      if (_phoneController.text.isNotEmpty) {
+        _phoneController.text = _phoneController.text.substring(
+          0,
+          _phoneController.text.length - 1,
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,10 +119,13 @@ class VerifyNumberScreen extends StatelessWidget {
                       onChanged: (value) {},
                     ),
                     const VerticalDivider(),
-                    const Expanded(
+                    Expanded(
                       child: TextField(
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
+                        controller: _phoneController,
+                        readOnly:
+                            true, // user sirf keypad se input karega, normal keyboard open nahi hoga
+                        keyboardType: TextInputType.none,
+                        decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: "Enter number",
                         ),
@@ -161,14 +188,42 @@ class VerifyNumberScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 24),
+              const Spacer(),
 
-              // 👇 Image updated with width fit
-              Image.asset(
-                "assets/images/number.png",
-                height: 336,
-                width: 393,
-                fit: BoxFit.contain,
+              // Custom Number Pad
+              GridView.builder(
+                shrinkWrap: true,
+                itemCount: 12, // 0-9 + backspace + empty
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 2,
+                ),
+                itemBuilder: (context, index) {
+                  if (index == 9) {
+                    return const SizedBox(); // empty space
+                  } else if (index == 11) {
+                    return IconButton(
+                      onPressed: _deleteNumber,
+                      icon: const Icon(Icons.backspace, color: Colors.black),
+                    );
+                  } else {
+                    String number = (index == 10)
+                        ? "0"
+                        : (index + 1).toString();
+                    return InkWell(
+                      onTap: () => _addNumber(number),
+                      child: Center(
+                        child: Text(
+                          number,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
+                },
               ),
             ],
           ),
