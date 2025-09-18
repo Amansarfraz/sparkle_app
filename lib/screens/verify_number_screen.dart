@@ -122,8 +122,7 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
                     Expanded(
                       child: TextField(
                         controller: _phoneController,
-                        readOnly:
-                            true, // user sirf keypad se input karega, normal keyboard open nahi hoga
+                        readOnly: true, // sirf custom keypad se input
                         keyboardType: TextInputType.none,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
@@ -190,40 +189,68 @@ class _VerifyNumberScreenState extends State<VerifyNumberScreen> {
 
               const Spacer(),
 
-              // Custom Number Pad
-              GridView.builder(
-                shrinkWrap: true,
-                itemCount: 12, // 0-9 + backspace + empty
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  childAspectRatio: 2,
+              // Number Pad Box
+              Container(
+                width: 396,
+                height: 336,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFD1D3D9), // background color
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                itemBuilder: (context, index) {
-                  if (index == 9) {
-                    return const SizedBox(); // empty space
-                  } else if (index == 11) {
-                    return IconButton(
-                      onPressed: _deleteNumber,
-                      icon: const Icon(Icons.backspace, color: Colors.black),
-                    );
-                  } else {
-                    String number = (index == 10)
-                        ? "0"
-                        : (index + 1).toString();
-                    return InkWell(
-                      onTap: () => _addNumber(number),
-                      child: Center(
-                        child: Text(
-                          number,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                padding: const EdgeInsets.all(12),
+                child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 12, // 0-9 + backspace + empty
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8,
+                    childAspectRatio: 2,
+                  ),
+                  itemBuilder: (context, index) {
+                    if (index == 9) {
+                      return const SizedBox(); // empty space
+                    } else if (index == 11) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: IconButton(
+                          onPressed: _deleteNumber,
+                          icon: const Icon(
+                            Icons.backspace,
+                            color: Colors.black,
                           ),
                         ),
-                      ),
-                    );
-                  }
-                },
+                      );
+                    } else {
+                      String number = (index == 10)
+                          ? "0"
+                          : (index + 1).toString();
+                      return InkWell(
+                        onTap: () => _addNumber(number),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white, // button color
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Center(
+                            child: Text(
+                              number,
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                ),
               ),
             ],
           ),
